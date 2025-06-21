@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatelessWidget {
@@ -5,6 +6,17 @@ class SplashViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child:Text("Hello, Bookly!"));
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: SizedBox(
+            height: 150,
+            width: 150,
+            child: Image.asset(Assets.logo),
+          ),
+        )
+      ],
+    );
   }
 }
