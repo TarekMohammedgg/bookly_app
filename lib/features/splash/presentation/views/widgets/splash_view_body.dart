@@ -11,9 +11,15 @@ class SplashViewBody extends StatelessWidget {
       children: [
         Center(
           child: SizedBox(
-            height: 150,
+            height: 100,
             width: 150,
             child: Image.asset(Assets.logo),
+          ),
+        ),
+        const Center(
+          child: Text(
+            "Red Free Books ",
+            style: TextStyle(fontWeight: FontWeight.bold),
           ),
         )
       ],
