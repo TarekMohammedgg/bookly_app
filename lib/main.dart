@@ -1,3 +1,4 @@
+import 'package:bookly/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,20 +13,6 @@ class Bookly extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       home: SplashView(),
-    );
-  }
-}
-
-
-class SplashView extends StatelessWidget {
-  const SplashView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const  Scaffold(
-      body: Center(
-        child: Text('Welcome to Bookly!'),
-      ),
     );
   }
 }
