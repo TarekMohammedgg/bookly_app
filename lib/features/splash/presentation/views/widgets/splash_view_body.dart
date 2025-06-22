@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/assets.dart';
+import 'package:bookly/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -12,20 +13,22 @@ class _SplashViewBodyState extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
+
   @override
   void initState() {
     super.initState();
-
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    slidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 4), end: Offset.zero)
-            .animate(animationController);
+    slidingAnimation = Tween(begin: const Offset(0, 5), end: Offset.zero)
+        .animate(animationController);
 
-    slidingAnimation.addListener(() {
-      setState(() {});
-    });
     animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose(); 
   }
 
   @override
@@ -36,14 +39,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         children: [
           Image.asset(Assets.logo),
           const SizedBox(height: 10),
-          SlideTransition(
-            position: slidingAnimation,
-            child: const Text(
-              "Red Free Books",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
+          SlidingText(slidingAnimation: slidingAnimation)
         ],
       ),
     );
