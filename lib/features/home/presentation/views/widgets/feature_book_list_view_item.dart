@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-class FeatureListViewItem extends StatelessWidget {
-  const FeatureListViewItem({
+class FeatureBookListViewItem extends StatelessWidget {
+  final String imageUrl;
+  const FeatureBookListViewItem({
     super.key,
+    required this.imageUrl,
   });
 
   @override
@@ -15,10 +17,8 @@ class FeatureListViewItem extends StatelessWidget {
         width: 100,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            image: const DecorationImage(
-                fit: BoxFit.fill,
-                image: NetworkImage(
-                    "https://m.media-amazon.com/images/I/81ANaVZk5LL.jpg"))),
+            image: DecorationImage(
+                fit: BoxFit.fill, image: NetworkImage(imageUrl))),
       ),
     );
   }
