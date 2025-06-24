@@ -20,11 +20,41 @@ class HoeViewBody extends StatelessWidget {
           ),
           Text(
             "Best Seller",
-            style: Styles.titleMedium,
-          ) , 
-          
+            style: Styles.textStyle18,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          BestSellerListView()
         ],
       ),
+    );
+  }
+}
+
+class BestSellerListView extends StatelessWidget {
+  const BestSellerListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        SizedBox(
+          height: 125,
+          child: AspectRatio(
+            aspectRatio: 2.5 / 4 // take width / height rate
+            ,
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  image: const DecorationImage(
+                      fit: BoxFit.fill,
+                      image: NetworkImage(
+                          "https://m.media-amazon.com/images/I/81ANaVZk5LL.jpg"))),
+            ),
+          ),
+        )
+      ],
     );
   }
 }

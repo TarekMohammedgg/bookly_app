@@ -13,8 +13,6 @@ class FeatureBookListViewItem extends StatelessWidget {
       aspectRatio: 2.1 / 4 // take width / height rate
       ,
       child: Container(
-        height: 200,
-        width: 100,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             image: DecorationImage(
