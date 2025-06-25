@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class FeatureBookListViewItem extends StatelessWidget {
+class CustomBookImage extends StatelessWidget {
   final String imageUrl;
-  const FeatureBookListViewItem({
+  const CustomBookImage({
     super.key,
     required this.imageUrl,
   });

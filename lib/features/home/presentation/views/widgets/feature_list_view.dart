@@ -1,5 +1,5 @@
 import 'package:bookly/core/utils/helper.dart';
-import 'package:bookly/features/home/presentation/views/widgets/feature_book_list_view_item.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class FeatureListView extends StatelessWidget {
@@ -24,7 +24,7 @@ class FeatureListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.only(left: 0, right: 10),
-          child: FeatureBookListViewItem(imageUrl: bookList[index]),
+          child: CustomBookImage(imageUrl: bookList[index]),
         ),
       ),
     );
