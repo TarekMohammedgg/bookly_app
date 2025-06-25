@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/helper.dart';
+import 'package:bookly/core/widgets/failure_widget.dart';
 import 'package:bookly/features/home/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/view_models/featured_books_cubit/featured_books_state.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
@@ -30,15 +31,7 @@ class FeatureListView extends StatelessWidget {
             ),
           );
         } else if (state is FeaturedBooksFailure) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Center(
-                child: Text(state.errorMessage),
-              )
-            ],
-          );
+          return FailureWidget(errorMessage: state.errorMessage);
         } else {
           return const Column(
             mainAxisAlignment: MainAxisAlignment.center,

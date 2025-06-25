@@ -2,12 +2,19 @@ import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/helper.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/views/widgets/booking_rate.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
+  const BestSellerListViewItem(
+      {super.key,
+      required this.imageUrl,
+      required this.title,
+      required this.subtitle});
+  final String imageUrl;
+  final String title;
+  final String subtitle;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,13 +31,12 @@ class BestSellerListViewItem extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: 2.5 / 4 // take width / height rate
                   ,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(14),
-                        image: const DecorationImage(
-                            fit: BoxFit.fill,
-                            image: NetworkImage(
-                                "https://m.media-amazon.com/images/I/81ANaVZk5LL.jpg"))),
+                  child: ClipRRect(
+                    borderRadius: BorderRadiusGeometry.circular(14),
+                    child: CachedNetworkImage(
+                      fit: BoxFit.fill,
+                      imageUrl: imageUrl,
+                    ),
                   ),
                 ),
               ),
@@ -45,7 +51,7 @@ class BestSellerListViewItem extends StatelessWidget {
                     SizedBox(
                       width: Helper.kwidth(context) * 0.5,
                       child: Text(
-                        "Atomic Habits",
+                        title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle20
@@ -56,7 +62,7 @@ class BestSellerListViewItem extends StatelessWidget {
                       height: 3,
                     ),
                     Text(
-                      "James Clear",
+                      subtitle,
                       style: Styles.textStyle14.copyWith(color: Colors.grey),
                     ),
                     const SizedBox(
@@ -66,7 +72,7 @@ class BestSellerListViewItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "19.99 €",
+                          "Free",
                           style: Styles.textStyle20,
                         ),
                         BookRating()
