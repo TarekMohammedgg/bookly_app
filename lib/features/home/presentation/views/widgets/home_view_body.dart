@@ -1,4 +1,3 @@
-import 'package:bookly/core/utils/helper.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/views/widgets/best_seller_list_view_item.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_app_bar.dart';
@@ -17,7 +16,7 @@ class HoeViewBody extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 20,
-              vertical: 30,
+              vertical: 20,
             ),
             child: CustomAppBar(),
           ),
